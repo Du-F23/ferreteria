@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layouts.app')
 <title> DSM 43</title>
 @section('content')
 <main class="main-content  mt-0">

@@ -18,3 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/category', 'CategoryController@index')->name('categories.index');
+Route::post('/category','CategoryController@store')->name('category.store');
+Route::put('/category/{id}/update','CategoryController@update')->name('category.update');;
+Route::get('/category/{id}/edit','CategoryController@edit');
+Route::delete('/category/{category}','CategoryController@delete')->name('category.destroy');
+
