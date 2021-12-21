@@ -46,42 +46,14 @@
                 </div>
               </div>
             </div>
-                  {{-- <!-- Modal ADD  STAR-->
-                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Ingresa Una Categoria </h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label=""></button>
-                        </div>
-                        <div class="modal-body">
-                          <div class="container">
-                            <div class="row">
 
-                              {{-- <form action="{{route('category.store') }}" method="POST">
-                                {{-- generar el token para el envio de dato csrf --}}
-
-
-                                {{-- <label class="col" for="">Nombre Categoria:</label>
-                                <input id= "name" class="col from-control" type="text" name="name" placeholder="Deportes">
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                              <button type="submit" class="btn btn-primary">Guardar</button>
-                            </div>
-                            </form> --}}
-                          {{-- </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div> --}}
-                  <!-- Modal ADD  END  -->
         <table class="table">
             <thead>
                 <tr>
                 <th>Clave</th>
                 <th>nombre</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
                 <th>Opciones</th>
                 </tr>
             </thead>
@@ -90,9 +62,11 @@
                 <tr>
                     <td>{{$article->id}}</td>
                     <td>{{$article->name}}</td>
+                    <td>{{$article->precio}}</td>
+                    <td>{{$article->cantidad}}</td>
                     <td>
                         <button type='button' class="btn btn-primary"><i class="far fa-eye"></i></button>
-                        <a type='button' href="/article/{{$article->id}}/edit"><button type='button' class="btn btn-success"><i class="fas fa-pen-square"></i></button></a>
+                        <a type='button' href="/productos/{{$article->id}}/edit"><button type='button' class="btn btn-success"><i class="fas fa-pen-square"></i></button></a>
                         <button type='submit' class="btn btn-danger"
                         onClick="return confirm('estas seguro  a eliminar el registro?')"><i class="far fa-trash-alt"></i></button>
                        {{--  <input

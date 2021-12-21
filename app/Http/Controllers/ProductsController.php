@@ -38,10 +38,10 @@ class ProductsController extends Controller
         return redirect('/productos')->with('mesage', 'el producto se ha agregado exitosamente!');
     }
 
-    public function edit(Products $id)
+    public function edit( $id)
     {
         $product=Products::findOrFail($id);
-        return view('productos.add',[
+        return view('productos.edit',[
             'product'=>$product,
         ]);
     }
