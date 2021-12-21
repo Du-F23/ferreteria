@@ -55,9 +55,8 @@ class ProductsController extends Controller
     }
 
 
-    public function destroy(Products $products)
-    {
-        $product->delete();
+    public function destroy(Products $products){
+        $products->delete();
         return redirect('/productos')->with('mesage', 'el producto se ha eliminado exitosamente!');
     }
 }

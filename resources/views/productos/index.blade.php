@@ -36,7 +36,7 @@
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">Lista De Articulos</h6>
+                <h6 class="text-white text-capitalize ps-3">Lista De Productos</h6>
                 <div class="float-end">
                 <a href="/productos/add">
                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-toggle="tooltip" data-bs-placement="top" title="Agregar">
@@ -69,12 +69,6 @@
                         <a type='button' href="/productos/{{$article->id}}/edit"><button type='button' class="btn btn-success"><i class="fas fa-pen-square"></i></button></a>
                         <button type='submit' class="btn btn-danger"
                         onClick="return confirm('estas seguro  a eliminar el registro?')"><i class="far fa-trash-alt"></i></button>
-                       {{--  <input
-                          type="submit"
-                          value="Eliminar"
-                          class="btn btn-sm btn-danger"
-                          onClick="return confirm('estas seguro  a eliminar el registro?')">
-                           --}}
                   </td>
                 </tr>
                 @endforeach
