@@ -25,12 +25,12 @@ Route::put('/category/{id}/update','CategoryController@update')->name('category.
 Route::get('/category/{id}/edit','CategoryController@edit');
 Route::delete('/category/{category}','CategoryController@delete')->name('category.destroy');
 
-Route::get('/productos', 'ProductsController@index')->name('producto.index');
-Route::get('/productos/add','ProductsController@create')->name('producto.create');
-Route::post('/productos','ProductsController@store')->name('producto.store');
-Route::put('/productos/{id}/update','ProductsController@update')->name('producto.update');;
+Route::get('/productos', 'ProductsController@index')->name('products.index');
+Route::get('/productos/add','ProductsController@create')->name('products.create');
+Route::post('/productos','ProductsController@store')->name('products.store');
+Route::put('/productos/{id}/update','ProductsController@update')->name('products.update');;
 Route::get('/productos/{id}/edit','ProductsController@edit');
-Route::delete('/productos/{productos}','ProductsController@delete')->name('producto.destroy');
+Route::delete('/productos/{product}','ProductsController@delete')->name('products.destroy');
 
 
 //Sales routes

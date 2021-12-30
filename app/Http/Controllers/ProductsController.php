@@ -4,15 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Products;
 use App\Category;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    use SoftDeletes;
+
     public function index()
     {
         $products=Products::latest()->paginate(20);
@@ -38,7 +36,7 @@ class ProductsController extends Controller
         return redirect('/productos')->with('mesage', 'el producto se ha agregado exitosamente!');
     }
 
-    public function edit( $id)
+    public function edit($id)
     {
         $product=Products::findOrFail($id);
         return view('productos.edit',[
@@ -55,8 +53,9 @@ class ProductsController extends Controller
     }
 
 
-    public function destroy(Products $products){
-        $products->delete();
-        return redirect('/productos')->with('mesage', 'el producto se ha eliminado exitosamente!');
+    public function delete(Products $product){
+        
+        $product->delete();
+        return redirect('/productos')->with('mesageDelete', 'el producto se ha eliminado exitosamente!');
     }
 }

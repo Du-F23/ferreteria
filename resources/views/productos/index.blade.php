@@ -58,17 +58,25 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($products as $article)
+                @foreach($products as $product)
                 <tr>
-                    <td>{{$article->id}}</td>
-                    <td>{{$article->name}}</td>
-                    <td>{{$article->precio}}</td>
-                    <td>{{$article->cantidad}}</td>
+                    <td>{{$product->id}}</td>
+                    <td>{{$product->name}}</td>
+                    <td>{{$product->precio}}</td>
+                    <td>{{$product->cantidad}}</td>
                     <td>
                         <button type='button' class="btn btn-primary"><i class="far fa-eye"></i></button>
-                        <a type='button' href="/productos/{{$article->id}}/edit"><button type='button' class="btn btn-success"><i class="fas fa-pen-square"></i></button></a>
-                        <button type='submit' class="btn btn-danger"
-                        onClick="return confirm('estas seguro  a eliminar el registro?')"><i class="far fa-trash-alt"></i></button>
+                        <a type='button' href="/productos/{{$product->id}}/edit"><button type='button' class="btn btn-success"><i class="fas fa-pen-square"></i></button></a>
+
+
+                        <form action="{{ route('products.destroy', $product) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button type='submit' class="btn btn-sm btn-danger"
+                                    onClick="return confirm('estas seguro  a eliminar el registro?')">
+                                <i class="far fa-trash-alt"></i>
+                            </button>
+                        </form>
                   </td>
                 </tr>
                 @endforeach
