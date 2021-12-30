@@ -56,16 +56,23 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($clients as $article)
+                @foreach($clients as $cliente)
                 <tr>
-                    <td>{{$article->id}}</td>
-                    <td>{{$article->name}}</td>
-                    <td>{{$article->home_address}}</td>
+                    <td>{{$cliente->id}}</td>
+                    <td>{{$cliente->name}}</td>
+                    <td>{{$cliente->home_address}}</td>
                     <td>
                         <button type='button' class="btn btn-primary"><i class="far fa-eye"></i></button>
-                        <a type='button' href="/clientes/{{$article->id}}/edit"><button type='button' class="btn btn-success"><i class="fas fa-pen-square"></i></button></a>
-                        <button type='submit' class="btn btn-danger"
-                        onClick="return confirm('estas seguro  a eliminar el registro?')"><i class="far fa-trash-alt"></i></button>
+                        <a type='button' href="/clientes/{{$cliente->id}}/edit"><button type='button' class="btn btn-success"><i class="fas fa-pen-square"></i></button></a>
+                        
+                        <form action="{{ route('cliente.destroy', $cliente) }}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                              <button type='submit' class="btn btn-sm btn-danger"
+                                onClick="return confirm('estas seguro  a eliminar el registro?')">
+                                    <i class="far fa-trash-alt"></i>
+                              </button>
+                          </form>
                   </td>
                 </tr>
                 @endforeach

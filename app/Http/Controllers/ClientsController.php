@@ -36,6 +36,7 @@ class ClientsController extends Controller
             'home_address'=>$request->home_address,
             //'phone_number'=>$request->phone_number
         ]);
+        return redirect('/clientes')->with('mesageUpdate', 'El cliente se ha agregado exitosamente!');
     }
 
 
@@ -52,12 +53,12 @@ class ClientsController extends Controller
     {
         $cliente=Clients::findOrFail($id);
         $cliente->update($request->all());
-        return redirect('/cliente')->with('mesage', 'Cliente actualizado correctamente');
+        return redirect('/clientes')->with('mesageUpdate', 'Cliente actualizado correctamente');
     }
 
-    public function destroy( $id)
+    public function delete(Clients $cliente)
     {
-        $clien->delete();
-        return redirect('/cliente')->with('mesage', 'Cliente eliminado correctamente');
+        $cliente->delete();
+        return redirect('/clientes')->with('mesageDelete', 'Cliente eliminado correctamente');
     }
 }
